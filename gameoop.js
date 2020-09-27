@@ -58,6 +58,8 @@ function getGames() {
 
                 buton.addEventListener('click', function() {
                     deleteGames(newJoc[i])
+
+
                 })
             }
         })
@@ -90,6 +92,17 @@ function hideLoader() {
 }
 
 
+function deleteGames(id) {
+    fetch((`https://games-world.herokuapp.com/games/${id}`), {
+        method: 'DELETE'
+    }).then(function(response) {
+        return response.json();
+    })
+
+}
+
+
+
 function createDeleteButton() {
     const deleteButton = document.createElement('button');
     deleteButton.innerText = "Delete";
@@ -97,13 +110,4 @@ function createDeleteButton() {
 
     return deleteButton;
 
-}
-
-function deleteGames() {
-    fetch(baseUrl.href, {
-            method: 'DELETE'
-        }).then(function(response) {
-            return response.json();
-        })
-        .then(function(jsonResp) {})
 }
