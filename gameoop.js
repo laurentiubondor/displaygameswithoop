@@ -1,4 +1,4 @@
-var baseUrl = new URL("https://Games-world.herokuapp.com/games");
+var baseUrl = new URL("https://games-world.herokuapp.com/games");
 
 
 var lista = document.createElement("li");
@@ -49,7 +49,7 @@ function getGames() {
             var newJoc = Object.assign(new Joc(), jsonResp);
             console.log(newJoc)
 
-            for (var i = 0; i < 7; i++) {
+            for (var i = 0; i < jsonResp.length; i++) {
 
                 newJoc.dysplayGames(newJoc[i])
 
